@@ -420,3 +420,11 @@ def alpha3_beta1(context):
     """4.0alpha3 -> 4.0beta1
     """
     loadMigrationProfile(context, 'profile-plone.app.upgrade.v40:4alpha3-4beta1')
+
+def addRecursiveGroupsPlugin(context):
+    """Add a recursive groups plugin to acl_users"""
+    acl = getToolByName(context, 'acl_users')
+    from Products.PluggableAuthService.plugins.RecursiveGroupsPlugin import addRecursiveGroupsPlugin
+    from Products.PlonePAS.Extensions.Install import activatePluginInterfaces
+    addRecursiveGroupsPlugin(acl, 'recursive_groups', "Recursive Groups Plugin")
+    activatePluginInterfaces(context, "recursive_groups")

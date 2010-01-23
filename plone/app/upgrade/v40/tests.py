@@ -18,7 +18,7 @@ from plone.app.upgrade.v40.alphas import setupReferencebrowser
 from plone.app.upgrade.v40.alphas import migrateMailHost
 from plone.app.upgrade.v40.alphas import migrateFolders
 from plone.app.upgrade.v40.alphas import renameJoinFormFields
-
+from plone.app.upgrade.v40.alphas import addRecursiveGroupsPlugin
 
 class FakeSecureMailHost(object):
     meta_type = 'Secure Mail Host'
@@ -338,10 +338,20 @@ class TestMigrations_v4_0beta1(MigrationTest):
         loadMigrationProfile(self.portal, self.profile)
         self.failUnless(True)
 
+    def testAddRecursiveGroupsPlugin(self):
+        acl = getToolByName(self.portal, 'acl_users')
+        acl._delObject('recursive_groups')
+        self.failUnless('recursive_groups' not in acl)
+        loadMigrationProfile(self.portal, self.profile)
+        addRecursiveGroupsPlugin(self.portal)
+        self.failUnless('recursive_groups' in acl)
+
+
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()
     suite.addTest(makeSuite(TestMigrations_v4_0alpha1))
     suite.addTest(makeSuite(TestMigrations_v4_0alpha2))
     suite.addTest(makeSuite(TestMigrations_v4_0alpha3))
+    suite.addTest(makeSuite(TestMigrations_v4_0beta1))
     return suite
