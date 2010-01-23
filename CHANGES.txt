@@ -3,6 +3,8 @@ Changelog
 
 1.0a4 - Unreleased
 ------------------
+- Add upgrade step to install a recursive groups PAS plugin.
+  [esteele]
 
 - Add upgrade to pull iefixes from ResourceRegistries.
   Refs http://dev.plone.org/plone/ticket/9278.
