@@ -345,7 +345,8 @@ class TestMigrations_v4_0beta1(MigrationTest):
         loadMigrationProfile(self.portal, self.profile)
         addRecursiveGroupsPlugin(self.portal)
         self.failUnless('recursive_groups' in acl)
-
+        from Products.PluggableAuthService.interfaces.plugins import IGroupsPlugin
+        self.failUnless(acl.plugins.listPluginIds(IGroupsPlugin)[0] == 'recursive_groups')
 
 def test_suite():
     from unittest import TestSuite, makeSuite
