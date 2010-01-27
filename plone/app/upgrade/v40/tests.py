@@ -345,6 +345,8 @@ class TestMigrations_v4_0beta1(MigrationTest):
         loadMigrationProfile(self.portal, self.profile)
         addRecursiveGroupsPlugin(self.portal)
         self.failUnless('recursive_groups' in acl)
+        
+        # Ensure it's sitting first in the list of IGroupsPlugin providers
         from Products.PluggableAuthService.interfaces.plugins import IGroupsPlugin
         self.failUnless(acl.plugins.listPluginIds(IGroupsPlugin)[0] == 'recursive_groups')
 

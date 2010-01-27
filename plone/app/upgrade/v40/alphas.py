@@ -428,7 +428,8 @@ def addRecursiveGroupsPlugin(context):
     from Products.PluggableAuthService.interfaces.plugins import IGroupsPlugin
 
     acl = getToolByName(context, 'acl_users')
-    addRecursiveGroupsPlugin(acl, 'recursive_groups', "Recursive Groups Plugin")
+    if not 'recursive_groups' in acl:
+        addRecursiveGroupsPlugin(acl, 'recursive_groups', "Recursive Groups Plugin")
     activatePluginInterfaces(context, "recursive_groups")
     while not acl.plugins.listPluginIds(IGroupsPlugin).index('recursive_groups') == 0:
         acl.plugins.movePluginsUp(IGroupsPlugin, ['recursive_groups'])
