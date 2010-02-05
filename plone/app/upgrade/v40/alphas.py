@@ -440,3 +440,15 @@ def addRecursiveGroupsPlugin(context):
 
     if not 'recursive_groups' in acl:
         addRecursiveGroupsPlugin(acl, 'recursive_groups', "Recursive Groups Plugin")
+
+def cleanUpClassicThemeResources(context):
+    """
+    Remove the metadata of all registered CSS resources for the
+    plonetheme.classic product so they don't get unregistered when the
+    product is uninstalled. These registrations now live in
+    Products.CMFPlone.
+    """
+    qi = getToolByName(context, 'portal_quickinstaller')
+    if 'plonetheme.classic' in qi:
+        classictheme = qi['plonetheme.classic']
+        classictheme.resources_css = []  # empty the list of installed resources
