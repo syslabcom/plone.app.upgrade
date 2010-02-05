@@ -382,6 +382,7 @@ class TestMigrations_v4_0alpha5(MigrationTest):
         """
         portal = self.portal
         qi = getToolByName(portal, 'portal_quickinstaller')
+        qi.installProduct('plonetheme.classic')
         classictheme = qi['plonetheme.classic']
         classictheme.resources_css = ['something'] # add a random resource
         cleanUpClassicThemeResources(portal)
