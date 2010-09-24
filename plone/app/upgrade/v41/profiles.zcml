@@ -4,7 +4,7 @@
     i18n_domain="plone">
 
   <genericsetup:registerProfile
-      name="to41alpha1"
+      name="4-4.1a1"
       title="Upgrade profile for Plone 4.0.x to Plone 4.1alpha1"
       description=""
       directory="profiles/to_alpha1"

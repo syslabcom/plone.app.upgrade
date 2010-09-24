@@ -7,7 +7,7 @@ from Products.ResourceRegistries.config import JSTOOLNAME
 
 class TestMigrations_v4_1alpha1(MigrationTest):
 
-    profile = 'profile-plone.app.upgrade.v41:to41alpha1'
+    profile = 'profile-plone.app.upgrade.v41:4-4.1a1'
 
     def testProfile(self):
         # This tests the whole upgrade profile can be loaded

@@ -10,7 +10,7 @@
         destination="4100"
         title="Add search.js - special JS for search result page."
         profile="Products.CMFPlone:plone"
-        handler="plone.app.upgrade.v41.to41alpha1"
+        handler="plone.app.upgrade.v41.four0_four1_a1"
         />
 
 </configure>
