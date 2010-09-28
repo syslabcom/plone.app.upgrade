@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts">
-    <javascript id="search.js" insert-afer="livesearch.js"/>
+    <javascript id="search.js" insert-after="livesearch.js"/>
 </object>

@@ -4,12 +4,12 @@
     i18n_domain="plone">
 
   <genericsetup:registerProfile
-      name="4-4.1a1"
+      name="4.0.x-4.1a1"
       title="Upgrade profile for Plone 4.0.x to Plone 4.1alpha1"
       description=""
-      directory="profiles/to_alpha1"
+      directory="profiles/to_alpha_1"
       for="Products.CMFPlone.interfaces.IMigratingPloneSiteRoot"
       provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
+      />     
 
 </configure>
