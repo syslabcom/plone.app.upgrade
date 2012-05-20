@@ -211,7 +211,7 @@ def convert_to_uuidindex(catalog, index):
                     shortest = min(paths, key=len)
                     for path, key in paths.iteritems():
                         if path[:len(shortest)] != shortest:
-                            raise ValueError(
+                            logger.warning(
                                 'Inconsistent UID index, UID %s is associated '
                                 'with multiple docids: %r' % (k, paths))
 
