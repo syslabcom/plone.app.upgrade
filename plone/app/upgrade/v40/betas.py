@@ -115,7 +115,10 @@ def updateIconMetadata(context):
             if brain_icon not in old_icons:
                 # Otherwise we need to ask the object
                 new_value = ''
-                obj = brain.getObject()
+                try:
+                    obj = brain.getObject()
+                except:
+                    new_value = ''
                 method = getattr(aq_base(obj), 'getIcon', None)
                 if method is not None:
                     try:
