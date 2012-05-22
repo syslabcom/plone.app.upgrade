@@ -127,6 +127,7 @@
             handler=".alphas.migrateMailHost"
             />
 
+        <!-- Skipping this step since we already performed it separately -->
         <!--genericsetup:upgradeStep
             title="Upgrade standard folders to new unified folder type."
             handler=".alphas.migrateFolders"
@@ -275,6 +276,7 @@
             handler="plone.app.upgrade.v40.betas.removeLargePloneFolder"
             />
 
+        <!-- already done -->
         <!--genericsetup:upgradeStep
             title="Convert standard file and image types to blobs."
             handler="plone.app.upgrade.v40.betas.convertToBlobs"

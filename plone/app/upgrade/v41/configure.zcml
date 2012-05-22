@@ -16,11 +16,12 @@
         handler=".alphas.add_siteadmin_role"
         />
 
-      <genericsetup:upgradeStep
+      <!-- not needed -->
+      <!--genericsetup:upgradeStep
         title="Update role mappings"
         description="Make sure the updated rolemap/workflows take effect. (Reindexes the allowedRolesAndUsers index.)"
         handler=".alphas.update_role_mappings"
-        />
+        /-->
 
       <genericsetup:upgradeStep
         title="Update control panel permissions"
